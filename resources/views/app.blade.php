@@ -2,11 +2,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>{{ isset($title) ? $title . ' - ' : null }}Laravel - The PHP Framework For Web Artisans</title>
+	<title>{{ isset($title) ? $title . ' - ' : null }} Laravel தமிழ் </title>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="author" content="Taylor Otwell">
-	<meta name="description" content="Laravel - The PHP framework for web artisans.">
-	<meta name="keywords" content="laravel, php, framework, web, artisans, taylor otwell">
+	<meta name="author" content="S A Sureshkumar">
+	<meta name="description" content="Laravel - தமிழில் குறிப்புகள்">
+	<meta name="keywords" content="laravel,  தமிழில் குறிப்புகள், S A Sureshkumar">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--[if lte IE 9]>
 		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
