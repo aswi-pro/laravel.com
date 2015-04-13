@@ -46,8 +46,7 @@ class DocsController extends Controller {
 
         $content = $this->docs->get($language, $version, $page ?: 'installation');
 
-        $title = (new Crawler($content))->filterXPath('//h1');
-
+        $title = makeDocTitle($content);
         $section = '';
 
         if ($this->docs->sectionExists($language, $version, $page)) {
@@ -61,7 +60,7 @@ class DocsController extends Controller {
         }
 
         return view('docs', [
-            'title' => count($title) ? $title->text() : null,
+            'title' => count($title) ? $title : null,
             'index' => $this->docs->getIndex($language, $version),
             'content' => $content,
             'currentLanguage' => $language,
