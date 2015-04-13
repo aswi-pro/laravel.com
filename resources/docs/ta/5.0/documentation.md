@@ -3,7 +3,7 @@
     - [Upgrade Guide](/docs/ta/5.0/upgrade)
     - [Contribution Guide](/docs/ta/5.0/contributions)
 - Setup
-    - [Installation](/docs/ta/5.0/installation)
+    - [நிறுவுதல்](/docs/ta/5.0/installation)
     - [Configuration](/docs/ta/5.0/configuration)
     - [Homestead](/docs/ta/5.0/homestead)
 - The Basics
