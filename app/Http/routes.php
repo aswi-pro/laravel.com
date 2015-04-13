@@ -15,17 +15,18 @@
  * Set the default documentation version...
  */
 define('DEFAULT_VERSION', '5.0');
+define('DEFAULT_LANGUAGE', 'ta');
 
 /**
  * Convert some text to Markdown...
  */
 function markdown($text) {
-	return (new ParsedownExtra)->text($text);
+    return (new ParsedownExtra)->text($text);
 }
 
 get('/', function() {
-	return view('marketing');
+    return view('marketing');
 });
 
 get('docs', 'DocsController@showRootPage');
-get('docs/{version}/{page?}', 'DocsController@show');
+get('docs/{language}/{version}/{page?}', 'DocsController@show');
