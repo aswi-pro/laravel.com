@@ -22,8 +22,8 @@ home
 
 <section class="panel statement light">
 	<div class="content">
-		<h1>Love beautiful code? We do too.</h1>
-		<p>The PHP Framework For Web Artisans</p>
+		<h1>தமிழில் லராவேல் </h1>
+		<p>Tamil Documentation for Laravel</p>
 		<div class='browser-window'>
 			<div class='top-bar'>
 				<div class='circles'>
