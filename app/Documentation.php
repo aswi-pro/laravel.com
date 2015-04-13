@@ -38,77 +38,52 @@ class Documentation {
 	 * @param  string  $version
 	 * @return string
 	 */
-	public function getIndex($version)
-	{
-		return $this->cache->remember('docs.'.$version.'.index', 5, function() use ($version) {
-			$path = base_path('resources/docs/'.$version.'/documentation.md');
+    public function getIndex($language, $version)
+    {
+        return $this->cache->remember('docs.' . $language . '.' . $version . '.index', 5, function() use ($language, $version) {
+            $path = base_path('resources/docs/' . $language . '/' . $version . '/documentation.md');
 
-			if ($this->files->exists($path)) {
-				return $this->replaceLinks($version, markdown($this->files->get($path)));
-			}
+            if ($this->files->exists($path)) {
+                return markdown($this->files->get($path));
+            }
 
-			return null;
-		});
-	}
+            return null;
+        });
+    }
 
-	/**
-	 * Get the given documentation page.
-	 *
-	 * @param  string  $version
-	 * @param  string  $page
-	 * @return string
-	 */
-	public function get($version, $page)
-	{
-		return $this->cache->remember('docs.'.$version.'.'.$page, 5, function() use ($version, $page) {
-			$path = base_path('resources/docs/'.$version.'/'.$page.'.md');
+    /**
+     * Get the given documentation page.
+     *
+     * @param  string  $language
+     * @param  string  $version
+     * @param  string  $page
+     * @return string
+     */
+    public function get($language, $version, $page)
+    {
+        return $this->cache->remember('docs.' . $language . '.' . $version . '.' . $page, 1, function() use ($language, $version, $page) {
+            $path = base_path('resources/docs/' . $language . '/' . $version . '/' . $page . '.md');
 
-			if ($this->files->exists($path)) {
-				return $this->replaceLinks($version, markdown($this->files->get($path)));
-			}
+            if ($this->files->exists($path)) {
+                return markdown($this->files->get($path));
+            }
 
-			return null;
-		});
-	}
+            return null;
+        });
+    }
 
-	/**
-	 * Replace the version place-holder in links.
-	 *
-	 * @param  string  $version
-	 * @param  string  $content
-	 * @return string
-	 */
-	public static function replaceLinks($version, $content)
-	{
-		return str_replace('{{version}}', $version, $content);
-	}
+    /**
+     * Check if the given section exists.
+     *
+     * @param  string  $version
+     * @param  string  $page
+     * @return boolean
+     */
+    public function sectionExists($language, $version, $page)
+    {
+        return $this->files->exists(
+            base_path('resources/docs/' . $language . '/' . $version . '/'. $page . '.md')
+        );
+    }
 
-	/**
-	 * Check if the given section exists.
-	 *
-	 * @param  string  $version
-	 * @param  string  $page
-	 * @return boolean
-	 */
-	public function sectionExists($version, $page)
-	{
-		return $this->files->exists(
-			base_path('resources/docs/'.$version.'/'.$page.'.md')
-		);
-	}
-
-	/**
-	 * Get the publicly available versions of the documentation
-	 *
-	 * @return array
-	 */
-	public static function getDocVersions()
-	{
-		return [
-			'master' => 'Master',
-			'5.1' => '5.1',
-			'5.0' => '5.0',
-			'4.2' => '4.2',
-		];
-	}
 }

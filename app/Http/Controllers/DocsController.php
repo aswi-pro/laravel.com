@@ -28,56 +28,79 @@ class DocsController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function showRootPage()
-	{
-		return redirect('docs/'.DEFAULT_VERSION);
-	}
+    public function showRootPage()
+    {
+        return redirect('docs/' . DEFAULT_LANGUAGE . '/' . DEFAULT_VERSION);
+    }
 
-	/**
-	 * Show a documentation page.
-	 *
-	 * @return Response
-	 */
-	public function show($version, $page = null)
-	{
-		if ( ! $this->isVersion($version)) {
-			return redirect('docs/'.DEFAULT_VERSION.'/'.$version, 301);
-		}
+    /**
+     * Show a documentation page.
+     *
+     * @return Response
+     */
+    public function show($language, $version, $page = null)
+    {
+        if (!$this->isVersion($version)) {
+            return redirect('docs/' . DEFAULT_LANGUAGE . '/' . DEFAULT_VERSION . '/' . $version, 301);
+        }
 
-		$content = $this->docs->get($version, $page ?: 'installation');
+        $content = $this->docs->get($language, $version, $page ?: 'installation');
 
-		$title = (new Crawler($content))->filterXPath('//h1');
+        $title = (new Crawler($content))->filterXPath('//h1');
 
-		$section = '';
+        $section = '';
 
-		if ($this->docs->sectionExists($version, $page)) {
-			$section .= '/'.$page;
-		} elseif ( ! is_null($page)) {
-			return redirect('/docs/'.$version);
-		}
+        if ($this->docs->sectionExists($language, $version, $page)) {
+            $section .= '/' . $page;
+        } elseif ( ! is_null($page)) {
+            return redirect('/docs/' . $language . '/' . $version);
+        }
 
-		if (is_null($content)) {
-			abort(404);
-		}
+        if (is_null($content)) {
+            abort(404);
+        }
 
-		return view('docs', [
-			'title' => count($title) ? $title->text() : null,
-			'index' => $this->docs->getIndex($version),
-			'content' => $content,
-			'currentVersion' => $version,
-			'versions' => Documentation::getDocVersions(),
-			'currentSection' => $section,
-		]);
-	}
+        return view('docs', [
+            'title' => count($title) ? $title->text() : null,
+            'index' => $this->docs->getIndex($language, $version),
+            'content' => $content,
+            'currentLanguage' => $language,
+            'currentVersion' => $version,
+            'versions' => $this->getDocVersions(),
+            'languages' => $this->getDocLanguages(),
+            'currentSection' => $section,
+        ]);
+    }
 
-	/**
-	 * Determine if the given URL segment is a valid version.
-	 *
-	 * @param  string  $version
-	 * @return bool
-	 */
-	protected function isVersion($version)
-	{
-		return in_array($version, array_keys(Documentation::getDocVersions()));
-	}
+    /**
+     * Determine if the given URL segment is a valid version.
+     *
+     * @param  string  $version
+     * @return bool
+     */
+    protected function isVersion($version)
+    {
+        return in_array($version, array_keys($this->getDocVersions()));
+    }
+
+    /**
+     * Get the available documentation versions.
+     *
+     * @return array
+     */
+    protected function getDocVersions()
+    {
+        return [
+            '5.0' => '5.0',
+            '4.2' => '4.2',
+        ];
+    }
+    protected function getDocLanguages()
+    {
+        return [
+            'ta' => 'Ta',
+            'en' => 'En',
+        ];
+    }
+
 }
