@@ -7,39 +7,39 @@
 <a name="install-composer"></a>
 ## Composer ஐ நிறுவுதல்
 
-Laravel utilizes [Composer](http://getcomposer.org) to manage its dependencies. So, before using Laravel, you will need to make sure you have Composer installed on your machine.
+Laravel தனது சார்பு (Dependencies) மென்பொருள் முகாமையினை [Composer](http://getcomposer.org) ஊடாக மேற்கொள்கின்றது. ஆகவே லராவேல் இனை பயன்படுத்த முன்னர்  கொம்போசர் இனை உங்களின் கணினியில் நிறுவுதல் அவசியம் ஆகும்.
 
 <a name="install-laravel"></a>
 ## Laravel  ஐ நிறுவுதல்
 
-### Via Laravel Installer
+### லராவேல் நிறுவி இனை பயன்படுத்தல்
 
-First, download the Laravel installer using Composer.
+லராவேல் நிறுவியை முதலில் கொம்போசர் ஊடாக தரவிறக்கி நிறுவ வேண்டும்.
 
 	composer global require "laravel/installer=~1.1"
 
-Make sure to place the `~/.composer/vendor/bin` directory in your PATH so the `laravel` executable can be located by your system.
+உங்களுடைய கணினியின் PATH மாறியில் `~/.composer/vendor/bin` உள்ளடக்கப்பட்டுளதா என்பதை உறுதி செய்க. இதன் மூலம் `laravel` நிறுவியினை இலகுவாக எந்த ஒரு Directory Path இலிருந்தும் CLI ஊடாக இயக்க முடியும்.
 
-Once installed, the simple `laravel new` command will create a fresh Laravel installation in the directory you specify. For instance, `laravel new blog` would create a directory named `blog` containing a fresh Laravel installation with all dependencies installed. This method of installation is much faster than installing via Composer:
+லராவேல் நிறுவி நிறுவப்பட்டதன் பின், `laravel new` கட்டளையினூடாக இலகுவாக ஒரு புதிய லராவேல் நிறுவலை குறிப்பிட்ட directory இனுள் மேற்கொள்ள முடியும். உதாரணமாக,`laravel new blog` கட்டளை `blog` எனும் directory இனுள்  புதிய லராவேல் நிறுவலை தேவையான சார்பு மென்பொருட்களுடன் நிறுவும். இது கொம்போசர் ஊடான நிறுவலை விட மிக வேகமானது:
 
 	laravel new blog
 
-### Via Composer Create-Project
+### Composer இனை பயன்படுத்தி நிறுவுதல்
 
-You may also install Laravel by issuing the Composer `create-project` command in your terminal:
+கொம்போசரின் `create-project` கட்டளையை terminal இல் பிறப்பிப்பதன் ஊடாகவும் லராவேல் இனை நிறுவ முடியும்:
 
 	composer create-project laravel/laravel --prefer-dist
 
-### Scaffolding
+### சாரக்கட்டு
 
-Laravel ships with scaffolding for user registration and authentication. If you would like to remove this scaffolding, use the `fresh` Artisan command:
+லராவேல் புதிய நிறுவலானது, பயனர் பதிவு செய்தல் மற்றும் புகுபதிகை கூறுகளுடன் கிடைக்கப்பெறுகின்றது. இக் கூறுகள் அவசியமற்று இருப்பின் `fresh` Artisan கட்டளையை பயன்படுத்தி நீக்க முடியும்:
 
 	php artisan fresh
 
 <a name="server-requirements"></a>
 ## Server தேவைப்பாடுகள்
 
-The Laravel framework has a few system requirements:
+லராவேல் கட்டமைப்பனது சில முன் தேவைப்பாடுகளை கணினியில் வேண்டி நிற்கின்றது:
 
 - PHP >= 5.4
 - Mcrypt PHP Extension
