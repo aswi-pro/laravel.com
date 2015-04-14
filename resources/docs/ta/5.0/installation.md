@@ -47,14 +47,14 @@ Laravel தனது சார்பு (Dependencies) மென்பொரு�
 - Mbstring PHP Extension
 - Tokenizer PHP Extension
 
-As of PHP 5.5, some OS distributions may require you to manually install the PHP JSON extension. When using Ubuntu, this can be done via `apt-get install php5-json`.
+PHP 5.5 இல் சில இயங்குதளங்களில் PHP JSON extension நீங்களாக நிறுவ வேண்டி இருக்கும். உதாரணமாக, Ubuntu இயங்குதளத்தில் `apt-get install php5-json` கட்டளை ஊடாக இதனை நிறுவலாம்.
 
 <a name="configuration"></a>
-## Configuration
+## லராவேல் கட்டமைப்பு
 
-The first thing you should do after installing Laravel is set your application key to a random string. If you installed Laravel via Composer, this key has probably already been set for you by the `key:generate` command.
+லராவேல் நிறுவியதன் பின்னர், முதலாவதாக application key வளங்க வேண்டும். கொம்பொசர் மூலம் நிறுவி இருந்தால் இது தானாகவே `key:generate` கட்டளை ஆல் வளங்கப்பட்டு இருக்கும்.
 
-Typically, this string should be 32 characters long. The key can be set in the `.env` environment file. **If the application key is not set, your user sessions and other encrypted data will not be secure!**
+இது 32 எழுத்துக்களைக் கொண்டிருக்கும். இதனை `.env` file இனுள் set செய்ய வேண்டும். **இந்த Key வழங்கப்படாதவிடத்து Session மற்றும் குறியாக்கம் என்பன பாதுகாப்பற்றதாக இருக்கும்!**
 
 Laravel needs almost no other configuration out of the box. You are free to get started developing! However, you may wish to review the `config/app.php` file and its documentation. It contains several options such as `timezone` and `locale` that you may wish to change according to your application.
 
