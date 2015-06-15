@@ -15,12 +15,11 @@ Artisan என்பது Laravel இன் Command-line இடைமுகம�
 
 #### கிடைக்ககூடிய கட்டளைகளை பட்டியலிடல்
 
-கிடைக்ககூடிய Artisan  கட்டளைகளை பட்டியலிட்டு  பார்ப்பதற்கு, நீங்கள் இந்த `list` கட்டளையை பயன்ப்படுத்தலாம்:
-
+கிடைக்ககூடிய Artisan  கட்டளைகளை பட்டியலிட்டு  பார்ப்பதற்கு,  நீங்கள் இந்த `list` கட்டளையை பயன்ப்படுத்தலாம்:
 
 	php artisan list
 
-#### Viewing The Help Screen For A Command
+#### கட்டளைக்கான உதவித்திரையைப்  பார்வையிடல்
 
 Every command also includes a "help" screen which displays and describes the command's available arguments and options. To view a help screen, simply precede the name of the command with `help`:
 
@@ -74,7 +73,7 @@ This Cron will call the Laravel command scheduler every minute. Then, Laravel ev
 
 Let's look at a few more scheduling examples:
 
-#### Scheduling Closures
+####  Closures-ஐ   திட்டமிடல்
 
 	$schedule->call(function()
 	{
@@ -82,7 +81,7 @@ Let's look at a few more scheduling examples:
 
 	})->hourly();
 
-#### Scheduling Terminal Commands
+#### Terminal கட்டளையைத்  திட்டமிடல்
 
 	$schedule->exec('composer self-update')->daily();
 
