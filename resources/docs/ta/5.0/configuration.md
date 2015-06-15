@@ -1,22 +1,22 @@
-# Configuration
+# கட்டமைப்பு
 
-- [Introduction](#introduction)
-- [After Installation](#after-installation)
-- [Accessing Configuration Values](#accessing-configuration-values)
-- [Environment Configuration](#environment-configuration)
-- [Configuration Caching](#configuration-caching)
-- [Maintenance Mode](#maintenance-mode)
-- [Pretty URLs](#pretty-urls)
+- [அறிமுகம்](#introduction)
+- [நிறுவியதன் பின்னர்](#after-installation)
+- [உள்ளமைவு மதிப்புகளை அணுகுதல்](#accessing-configuration-values)
+- [சூழல் கட்டமைப்பு](#environment-configuration)
+- [கட்டமைப்பு விரைவாக்க](#configuration-caching)
+- [பராமரிப்பு-முறை](#maintenance-mode)
+- [நுண்ணயம் வாய்ந்த URLs](#pretty-urls)
 
 <a name="introduction"></a>
-## Introduction
+## அறிமுகம்
 
 All of the configuration files for the Laravel framework are stored in the `config` directory. Each option is documented, so feel free to look through the files and get familiar with the options available to you.
 
 <a name="after-installation"></a>
-## After Installation
+## நிறுவியதன் பின்னர்
 
-### Naming Your Application
+### உங்கள் பிரயோகங்களிற்கு   பெயரிடுதல்
 
 After installing Laravel, you may wish to "name" your application. By default, the `app` directory is namespaced under `App`, and autoloaded by Composer using the [PSR-4 autoloading standard](http://www.php-fig.org/psr/psr-4/). However, you may change the namespace to match the name of your application, which you can easily do via the `app:name` Artisan command.
 
@@ -26,7 +26,7 @@ For example, if your application is named "Horsefly", you could run the followin
 
 Renaming your application is entirely optional, and you are free to keep the `App` namespace if you wish.
 
-### Other Configuration
+### மற்ற கட்டமைப்பு
 
 Laravel needs very little configuration out of the box. You are free to get started developing! However, you may wish to review the `config/app.php` file and its documentation. It contains several options such as `timezone` and `locale` that you may wish to change according to your location.
 
@@ -35,12 +35,12 @@ Once Laravel is installed, you should also [configure your local environment](/d
 > **Note:** You should never have the `app.debug` configuration option set to `true` for a production application.
 
 <a name="permissions"></a>
-### Permissions
+### அனுமதிகள்
 
 Laravel may require one set of permissions to be configured: folders within `storage` and `vendor` require write access by the web server.
 
 <a name="accessing-configuration-values"></a>
-## Accessing Configuration Values
+## உள்ளமைவு மதிப்புகளை அணுகுதல்
 
 You may easily access your configuration values using the `Config` facade:
 
@@ -53,7 +53,7 @@ You may also use the `config` helper function:
 	$value = config('app.timezone');
 
 <a name="environment-configuration"></a>
-## Environment Configuration
+## சூழல் கட்டமைப்பு
 
 It is often helpful to have different configuration values based on the environment the application is running in. For example, you may wish to use a different cache driver locally than you do on your production server. It's easy using environment based configuration.
 
@@ -65,7 +65,7 @@ Feel free to modify your environment variables as needed for your own local serv
 
 If you are developing with a team, you may wish to continue including a `.env.example` file with your application. By putting place-holder values in the example configuration file, other developers on your team can clearly see which environment variables are needed to run your application.
 
-#### Accessing The Current Application Environment
+#### தற்போதைய பயன்பாடு சூழலை  அணுகுதல்
 
 You may access the current application environment via the `environment` method on the `Application` instance:
 
@@ -92,14 +92,14 @@ An application instance may also be accessed via the `app` helper or the `App` f
 	$environment = App::environment();
 
 <a name="configuration-caching"></a>
-## Configuration Caching
+## கட்டமைப்பு விரைவாக்க
 
 To give your application a little speed boost, you may cache all of your configuration files into a single file using the `config:cache` Artisan command. This will combine all of the configuration options for your application into a single file which can be loaded quickly by the framework.
 
 You should typically run the `config:cache` command as part of your deployment routine.
 
 <a name="maintenance-mode"></a>
-## Maintenance Mode
+## பராமரிப்பு-முறை
 
 When your application is in maintenance mode, a custom view will be displayed for all requests into your application. This makes it easy to "disable" your application while it is updating or when you are performing maintenance. A maintenance mode check is included in the default middleware stack for your application. If the application is in maintenance mode, an `HttpException` will be thrown with a status code of 503.
 
@@ -111,16 +111,16 @@ To disable maintenance mode, use the `up` command:
 
 	php artisan up
 
-### Maintenance Mode Response Template
+### பராமரிப்பு முறை பதில் மாதிரி
 
-The default template for maintenance mode responses is located in `resources/views/errors/503.blade.php`.
+பராமரிப்பு முறை பதில்களுக்கான  இயல்புநிலை மாதிரி  இங்கே அமைந்துள்ளது `resources/views/errors/503.blade.php`.
 
 ### Maintenance Mode & Queues
 
 While your application is in maintenance mode, no [queued jobs](/docs/5.0/queues) will be handled. The jobs will continue to be handled as normal once the application is out of maintenance mode.
 
 <a name="pretty-urls"></a>
-## Pretty URLs
+## நுண்ணயம் வாய்ந்த URLs
 
 ### Apache
 
